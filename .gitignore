@@ -1,0 +1,4 @@
+.in_use/
+*.tmp
+Thumbs.db
+desktop.ini
