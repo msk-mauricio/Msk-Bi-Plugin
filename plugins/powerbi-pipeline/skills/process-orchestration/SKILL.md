@@ -84,8 +84,8 @@ Critérios:
 
 ### Gate 5 — Mockup Figma aprovado
 Critérios:
-- Figma MCP verificado antes de iniciar (D-07); fallback textual usado se indisponível.
-- URL do arquivo Figma gravada em `docs/mockups/figma-url.md` (ou `docs/mockups/mockup-textual.md` no fallback).
+- Mockup renderizado em HTML + SVG (D-07), com todo gráfico em SVG inline e ajuste à janela.
+- `docs/mockups/mockup.html` gravado e conferido contra o mapa de construção; `docs/mockups/mockup.md` com paleta e páginas. `figma-url.md` só quando o usuário pediu Figma.
 - Screenshots por página em `docs/mockups/screenshots/`.
 - `docs/mockups/mapa-construcao.md` presente (no caminho Figma) e coerente com a matriz de viabilidade: cada linha referencia medida 🟢/🟡 e cada elemento do mockup tem linha correspondente.
 - Páginas do mockup cobrem os KPIs 🟢/🟡 da matriz de viabilidade.

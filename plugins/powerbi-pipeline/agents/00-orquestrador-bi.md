@@ -97,7 +97,7 @@ Agentes de fase rodam como subagentes e **não podem** abrir `AskUserQuestion`. 
 - **Fase 1:** executar a cascata de detecção de entrada descrita em `01-analista-requisitos` § Detecção de entrada (transcrições em `docs/transcricoes/` → PRD existente → AskUserQuestion com os ramos C/D/E) e entregar os insumos já resolvidos no handoff de despacho.
 - **Fase 2:** executar a pré-condição de `02-power-query-reviewer` (arquivos em `docs/power-query/input/`, M colado pelo usuário ou apenas partitions TMDL) antes de despachar.
 - **Fase 5:** perguntar via `AskUserQuestion`, antes de despachar (inclusive no despacho antecipado pós-Gate 4a — ver § Paralelismo e fan-out): (a) **resolução das páginas** — 1280×720 ou 1920×1080; (b) **tema/paleta** — há theme.json ou identidade visual do cliente? Entregar as respostas no handoff; o mockup usa a resolução nos frames e registra ambos no cabeçalho de `docs/mockups/mapa-construcao.md`.
-- **Fase 6:** repassar **tema e resolução** definidos na Fase 5 (cabeçalho do `mapa-construcao.md` ou handoff da fase) no handoff de despacho; se ausentes (ex.: fallback textual), perguntar **aqui** — as duas perguntas do §0 da skill `pbir` são respondidas nesta coleta, nunca pelo subagente (`pbir-report-builder` não pode abrir `AskUserQuestion`).
+- **Fase 6:** repassar **tema e resolução** definidos na Fase 5 (cabeçalho do `mapa-construcao.md` ou handoff da fase) no handoff de despacho; se ausentes, perguntar **aqui** — as duas perguntas do §0 da skill `pbir` são respondidas nesta coleta, nunca pelo subagente (`pbir-report-builder` não pode abrir `AskUserQuestion`).
 - **Demais fases:** confirmar que os artefatos de entrada da fase existem (ver tabela de fases do `CLAUDE.md`).
 
 ### Loop principal
@@ -146,4 +146,4 @@ Os gates de aprovação humana continuam estritamente sequenciais; o que roda em
 - **Single-writer do CHANGELOG:** no pipeline guiado, só o orquestrador grava `CHANGELOG.md` (no Encerramento de fase, a partir do handoff do agente — template em `docs/templates/changelog-entry-template.md`). Agentes de fase não gravam o CHANGELOG.
 - **Continuidade antes de redespacho:** entre os gates "a" e "b" da mesma fase e em toda rodada de ajuste, continuar o mesmo subagente (SendMessage). Redespachar do zero só quando o subagente não existir mais (ex.: retomada de sessão via `/retomar-projeto-bi`).
 - Se algum agente recusar a fase (escopo errado), parar e alertar o usuário.
-- Se Figma MCP indisponível na Fase 5, oferecer fallback textual via agente `client-presentation` (arquivo `.claude/agents/05-client-presentation.md`), que grava o mockup em `docs/mockups/mockup-textual.md`; a Fase 6 usa esse arquivo como referência de layout.
+- Fase 5 renderiza sempre em **HTML + SVG** (`docs/mockups/mockup.html`). Não há pré-check de Figma nem fallback a oferecer: o renderizador só depende de escrita de arquivo. Figma apenas se o usuário pedir explicitamente, e ainda assim o HTML é o entregável canônico.

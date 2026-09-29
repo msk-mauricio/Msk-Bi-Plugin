@@ -53,4 +53,4 @@ Quando acionado em modo Guided Pipeline, gerar apenas:
 - `docs/apresentacoes-cliente/narrativa-valor.md`
 
 ## Fallback da Fase 5 (Figma MCP indisponível)
-Quando acionado pelo orquestrador como **fallback da Fase 5**, gerar adicionalmente o mockup textual em `docs/mockups/mockup-textual.md` (uma seção por página: objetivo, KPIs, layout descrito em grid, visuais sugeridos). A Fase 6 (`pbir-report-builder`) usa esse arquivo como referência de layout no lugar de `figma-url.md`.
+**Legado:** o fallback textual da Fase 5 não é mais acionado — a Fase 5 renderiza sempre em HTML + SVG. Mantido apenas para projetos antigos: se explicitamente pedido, gerar o mockup textual em `docs/mockups/mockup-textual.md` (uma seção por página: objetivo, KPIs, layout descrito em grid, visuais sugeridos). A Fase 6 (`pbir-report-builder`) usa esse arquivo como referência de layout no lugar de `figma-url.md`.

@@ -10,6 +10,7 @@ Escopo cirúrgico passado pelo usuário (pode estar vazio): `$ARGUMENTS`
 
 Especificidades desta fase:
 
+0. **Bootstrap mínimo:** se `AGENTS.md`, `PROJECT_CONTEXT.md`, `TODO.md` ou `DECISIONS.md` não existirem, criar a versão mínima antes do despacho (skill `fase-avulsa` § 1.1). Em projeto já em produção, o `PROJECT_CONTEXT.md` é preenchido a partir do PBIP (fontes, tabelas, páginas).
 1. **Agente:** `analista-requisitos` (subagente). Fase alvo: Fase 1.
 2. **Coleta condicional** (cascata de `01-analista-requisitos` § Detecção de entrada — resolver por arquivos antes de perguntar):
    1. Há transcrições em `docs/transcricoes/` (`.txt`, `.md`, `.docx`)? → usar (Ramo A), sem perguntar.

@@ -33,7 +33,8 @@ Leia aquele arquivo antes de criar qualquer página ou visual PBIR (a skill `pbi
 - Query wells: `Category`/`Y` em gráficos, `Values` em slicer, `Data` em card — **nunca** `Values` em gráfico.
 - Cor de shape vem de `visualContainerObjects.background.color` (fill interno `show: false`).
 - `paragraphs` de textbox é array JSON nativo, nunca `Literal` encodado.
-- Slicer com header visível: altura mínima 55px.
+- **Slicers — padrão da casa (obrigatório):** tipo **suspenso (dropdown)**, altura **≤ 50 px**, título com **nome de negócio** (`header.text`: "Estabelecimento", "Comprador", "Linha de Compra" — nunca o nome técnico da coluna). Tratar `PBIR_SLICER_HEIGHT_BELOW_FLOOR` do `powerbi-report-author validate` como ruído, não como erro.
+- **Slicer de Período: NUNCA "Between"** (slider de datas). Padrão = dropdown hierárquico `dCalendario[Ano]` → `[Mês/Ano]` → `[Date]` (3 projeções em `Values`, as duas inferiores inativas; o `PBIR_ROLE_MAX_EXCEEDED` que o validador acusa é ruído). "Between" só em caso muito excepcional, pedido explicitamente pelo usuário e registrado em `DECISIONS.md`.
 - `subTitle show: false` em todos os visuais; `drillFilterOtherVisuals: true`; preserve o `$schema` do arquivo real (nunca rebaixe a versão — `visualContainer/2.8.0` é apenas o default dos templates em report novo).
 
 ## Checklist rápido por página

@@ -23,6 +23,28 @@ Ler `AGENTS.md`, `PROJECT_CONTEXT.md`, `TODO.md`, `DECISIONS.md` (em chamadas pa
 Placeholders `<preencher>` no `PROJECT_CONTEXT.md` **não bloqueiam** o modo avulso — registre a
 lacuna no Handoff de despacho como contexto ausente.
 
+#### 1.1 Bootstrap mínimo (arquivos de governança ausentes)
+Se **qualquer** um dos quatro arquivos não existir (típico de projeto já em produção, feito fora do
+pipeline), esta sessão cria a **versão mínima** dos ausentes **antes do despacho**, sem perguntar e
+sem abrir o fluxo guiado. Nunca sobrescrever um arquivo existente.
+
+- `AGENTS.md` — regras do projeto: escrita no modelo só via TMDL versionado (D-15), medidas na tabela
+  de medidas do projeto (D-17), nomenclatura Dashmaker (D-18), nunca reordenar `pageOrder` (página nova
+  entra no fim), documentos/planilhas são referência e não fonte, commits são do usuário.
+- `PROJECT_CONTEXT.md` — § Projeto (cliente, nome, nome técnico PBIP, status: `em produção`/`novo`),
+  § Fontes (lidas de `expressions.tmdl`/partições), § Modelo (tabelas fato/dimensão, tabela de medidas),
+  § Relatório (páginas na ordem do `pages.json`), § Stakeholders, § Branding. O que não der para inferir
+  por `ls`/`Read` fica `<preencher>`.
+- `TODO.md` — Gates 0 a 8 **todos `[ ]`** (numeração canônica da skill `process-orchestration`), seção
+  `## Pendências` e seção `## Ponto de retomada` **vazia**. Como nenhum gate fica `[x]`, a guarda do
+  passo 2 não dispara.
+- `DECISIONS.md` — cabeçalho da tabela de 5 colunas (`ID | Data | Decisão | Motivo | Impacto`) e uma
+  linha `D-P01` registrando o bootstrap mínimo (projeto pré-existente adotado pelo kit em modo avulso).
+
+Inferir tudo dos arquivos do PBIP (somente leitura). Informar no resumo final quais arquivos foram
+criados. Quem quiser o kit completo com gates roda `/iniciar-projeto-bi` depois — ele reaproveita esses
+arquivos (passo 5 do comando: se houver `TODO.md`, oferece retomar em vez de recomeçar).
+
 ### 2. Guarda de coerência com o pipeline
 Se `TODO.md` tiver a seção `## Ponto de retomada` preenchida, **ou** algum gate `[x]` com gates
 `[ ]` ainda pendentes, há um pipeline guiado em andamento. Antes de qualquer despacho, abrir

@@ -38,6 +38,8 @@ Criar e revisar páginas, visuais e experiência de navegação do relatório Po
 - Aplicar boas práticas de DataViz.
 - Garantir consistência visual.
 - Validar filtros, tooltips e navegação.
+- Tooltip do ícone "?" no cabeçalho (`visualHeaderTooltip.text`, D-22): com mais de um campo, **cada campo em nova linha** (`* Nome: descrição` — asterisco antes do nome —, `
+` real no literal), sem truncar — padrão do usuário, já cobrado mais de uma vez.
 - Garantir que cada visual responda uma pergunta de negócio.
 - Atualizar as colunas "Visual" e "Página" na matriz de rastreabilidade (`docs/levantamento-requisitos/matriz-rastreabilidade.md`).
 
@@ -84,6 +86,6 @@ Antes de criar o relatório PBIR:
 0. **Tema e resolução da página chegam no handoff de despacho** — as duas perguntas do §0 da skill `pbir` (tema? 1280×720 ou 1920×1080?) são respondidas pelo orquestrador na coleta de insumos, **nunca por você** (subagentes não abrem `AskUserQuestion`). Se o handoff não trouxer essas respostas nem o cabeçalho do `mapa-construcao.md` as declarar, devolver o handoff imediatamente pedindo a coleta — não chutar.
 1. Ler `docs/mockups/mapa-construcao.md` — **fonte primária de construção**: cada linha define visual PBI, medida, campos e posição (x,y,w,h); construir o PBIR a partir dele, sem interpretar imagem.
 2. Ler `docs/mockups/figma-url.md` e `docs/mockups/screenshots/*.png` — referência visual de conferência (paleta, hierarquia, títulos narrativos), quando existirem.
-3. Fallbacks, em ordem, quando `mapa-construcao.md` não existir: interpretar `figma-url.md` + screenshots (projetos anteriores a este formato); depois `docs/mockups/mockup-textual.md` (fallback da Fase 5); em último caso `docs/apresentacoes-cliente/proposta-executiva.md`.
+3. Fallbacks, em ordem, quando `mapa-construcao.md` não existir: `docs/mockups/mockup.html` (render HTML+SVG da Fase 5 — ler o HTML e extrair posições/medidas, que estão em coordenadas absolutas); depois `figma-url.md` + screenshots (projetos anteriores a este formato); depois `docs/mockups/mockup-textual.md`; em último caso `docs/apresentacoes-cliente/proposta-executiva.md`.
 4. Mapear cada página do mapa em uma página PBIR com os visuais nas posições declaradas.
 5. Ao concluir, devolver o handoff ao orquestrador. **Quem roda a validação do Gate 6 é o orquestrador (sessão principal): ele despacha o agente `pbip:pbip-validator` sobre `powerbi/` e só abre o gate se a validação passar (D-06).** Antes do handoff, faça a auto-checagem: JSON válido, `$schema` presente em todos os arquivos, estrutura `definition.pbir`/`definition/` preservada.
