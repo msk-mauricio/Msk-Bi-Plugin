@@ -1,12 +1,12 @@
-# Catálogo de Visuais Power BI para Mockups Figma
+# Catálogo de Visuais Power BI para Mockups HTML/SVG
 
-> Referência da skill `figma-mockup`. Leia junto com `.claude/skills/pbir/references/visual-design-system.md` §§1–4 (paleta, tipografia, configuração de página e grid com posições exatas). Este catálogo **não** duplica grid, posições, paleta nem tipografia — a fonte canônica é sempre o design system.
+> Referência da skill `html-mockup`. Leia junto com a skill `pbir`, `references/visual-design-system.md` §§1–4 (paleta, tipografia, configuração de página e grid com posições exatas). Este catálogo **não** duplica grid, posições, paleta nem tipografia — a fonte canônica é sempre o design system.
 
 ## Bloco A — Visuais permitidos no mockup
 
 Somente visuais nativos que a Fase 6 constrói com os templates do design system (§§5–9). Qualquer elemento do mockup deve ser um destes:
 
-| Visual | Quando usar | Representação fiel no Figma |
+| Visual | Quando usar | Representação fiel no HTML/SVG |
 |---|---|---|
 | Card (KPI) | valor único | fundo branco, label 12px cinza no topo, valor 28px, accent bar 4px na cor do KPI (design system §8) |
 | Barras horizontais | ranking / categorias longas | ordenado descendente, data labels no fim das barras, **sem** eixo de valores, **sem** gridlines |
@@ -51,18 +51,22 @@ Gravar em `docs/mockups/mapa-construcao.md`, uma seção por página:
 ```markdown
 # Mapa de Construção — <NomeDoProjeto>
 
-> Contrato Fase 5 → Fase 6. Cada linha vira um visual PBIR. Posições em px no canvas da resolução definida no despacho (1280×720 → grid §4; 1920×1080 → grid §4B do design system) — declarar a resolução e o tema no cabeçalho do mapa.
+> Contrato Fase 5 → Fase 6. Cada linha vira um visual PBIR. Posições em px no canvas da resolução definida no despacho (1280×720 → grid §4; 1920×1080 → grid §4B do design system).
+
+- **Resolução:** 1280×720
+- **Tema:** <theme.json do cliente | identidade visual (cores primária/secundária) | paleta padrão do design system>
+- **Mockup:** `docs/mockups/index.html`
 
 ## Página 1 — <Nome da página> (<pergunta de negócio central>)
 
-| # | Elemento | Visual PBI | Medida DAX | Campos (categoria/eixo) | Posição x,y,w,h |
-|---|----------|------------|------------|--------------------------|------------------|
-| 1 | Card Receita Total | card | [Receita Total] | — | 30,76,294,90 |
-| 2 | Ranking por UF | barras horizontais | [Receita Total] | dGeografia[UF] | 30,178,600,240 |
+| ID | Elemento | Tipo nativo (visualType) | Medida DAX | Campos (categoria/eixo) | x | y | w | h |
+|----|----------|--------------------------|------------|--------------------------|---|---|---|---|
+| P1-01 | Cards de receita | cardVisual | [Receita Total], [Margem %] | — | 30 | 76 | 600 | 90 |
+| P1-02 | Ranking por UF | barChart | [Receita Total] | dGeografia[UF] | 30 | 178 | 600 | 240 |
 ```
 
 Regras do template:
 
 1. Toda medida citada deve existir com status 🟢 ou 🟡 em `docs/dax/matriz-viabilidade.md`.
-2. Toda posição deve vir da tabela "Posições exatas" do design system (§4). Desvios exigem nota de justificativa abaixo da tabela da página.
-3. Todo elemento desenhado no Figma deve ter linha correspondente aqui — e vice-versa.
+2. Toda posição deve vir da tabela "Posições exatas" do design system (§4 ou §4B, conforme a resolução). Desvios exigem nota de justificativa abaixo da tabela da página.
+3. Todo visual do HTML (`data-id` = coluna ID, com `data-x/y/w/h` iguais às colunas x, y, w, h) deve ter linha correspondente aqui — e vice-versa.

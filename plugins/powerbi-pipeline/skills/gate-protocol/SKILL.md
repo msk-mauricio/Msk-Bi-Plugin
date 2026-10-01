@@ -17,6 +17,7 @@ Sempre que uma fase ou subfase do pipeline termina e é preciso decisão humana 
 2. **Artefatos** — lista de arquivos criados/alterados com caminho.
 3. **Riscos e pendências** — itens que ficaram em aberto. Nos gates 2b e 3b: se a validação runtime foi executada via Desktop Bridge (skill `desktop-bridge`), anexar o resultado do refresh; senão, incluir a pendência runtime manual: "executar refresh no Power BI Desktop para validar as alterações".
 4. **Validação técnica executada** (comando + resultado) — obrigatório nos gates que alteram TMDL/PBIR (2b, 3b, 4b e 6). No Gate 6, quando o Desktop Bridge estiver disponível, anexar também os screenshots de todas as páginas (`docs/qa/screenshots-gate6/`) ao resumo do gate — a aprovação humana deve ver a renderização real, não só o JSON.
+   No **Gate 5 — mockup HTML/SVG aprovado** (D-24), a validação é a conferência HTML × `mapa-construcao.md` (mesmo `data-id` e x/y/w/h, divergências = 0) e a evidência é o caminho de `docs/mockups/index.html` para o usuário abrir no navegador, mais os screenshots de `docs/mockups/screenshots/` quando houver navegador headless (opcionais).
 5. **AskUserQuestion** com exatamente estas 3 opções:
    - `Aprovar e seguir para a próxima fase`
    - `Pedir ajustes` (notas: campo livre que volta para o agente)

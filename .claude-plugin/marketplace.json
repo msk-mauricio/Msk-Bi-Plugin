@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "powerbi-pipeline",
-      "description": "Pipeline completo de desenvolvimento Power BI PBIP/PBIR: 8 fases com gates de aprovacao humana, 10 agentes especializados (requisitos, Power Query, modelagem dimensional, DAX, mockup Figma, relatorio PBIR, QA, documentacao) e 18 skills de dominio (TMDL, PBIR, DAX, M, SVG/HTML em DAX, dataviz, governanca de repositorio).",
+      "description": "Pipeline completo de desenvolvimento Power BI PBIP/PBIR: 8 fases com gates de aprovacao humana, 10 agentes especializados (requisitos, Power Query, modelagem dimensional, DAX, mockup HTML/SVG, relatorio PBIR, QA, documentacao) e 18 skills de dominio (TMDL, PBIR, DAX, M, SVG/HTML em DAX, dataviz, governanca de repositorio).",
       "author": {
         "name": "Mauricio Saatkamp",
         "email": "mauricio@mskcode.com.br"

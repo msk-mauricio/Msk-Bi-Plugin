@@ -51,6 +51,7 @@ Dor → Pergunta de negócio → KPI → Medida DAX → Visual PBIR → Página 
 - Títulos são claros.
 - Filtros são coerentes.
 - Não há poluição visual excessiva.
+- Layout aderente ao mockup aprovado no Gate 5: páginas e visuais do PBIR batem com `docs/mockups/mapa-construcao.md` (tipo nativo, medidas, x/y/w/h) e com `docs/mockups/index.html` (tema, hierarquia). Divergência sem justificativa no handoff da Fase 6 é achado.
 
 ## Checklist de publicação
 - Atualização testada.

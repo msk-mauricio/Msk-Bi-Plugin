@@ -1,6 +1,6 @@
 {
   "name": "powerbi-pipeline",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Pipeline completo de desenvolvimento Power BI PBIP/PBIR com gates de aprovacao humana, agentes de fase e skills de dominio.",
   "author": {
     "name": "Mauricio Saatkamp",

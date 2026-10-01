@@ -28,7 +28,6 @@ Garantir que o projeto siga um fluxo controlado, rastreável e auditável, reduz
 Critérios:
 - Os 5 arquivos de governança foram lidos e `powerbi/`/`docs/` inventariados.
 - Versionamento git verificado (proposto `git init` se ausente).
-- Figma MCP pré-checado (pendência registrada se indisponível).
 - CLIs do Desktop Bridge pré-checados (pendência registrada se ausentes — ver `docs/setup-desktop-bridge.md`).
 - Resumo de status apresentado e modo escolhido (continuar / recomeçar / cancelar).
 
@@ -82,12 +81,12 @@ Critérios:
 - Validação de sintaxe executada e anexada ao gate.
 - Validação runtime: cada medida nova testada com `EVALUATE {[Medida]}` via MCP (skill `desktop-bridge`); sem bridge disponível, pendência runtime registrada no TODO.md.
 
-### Gate 5 — Mockup Figma aprovado
+### Gate 5 — Mockup HTML/SVG aprovado
 Critérios:
-- Mockup renderizado em HTML + SVG (D-07), com todo gráfico em SVG inline e ajuste à janela.
-- `docs/mockups/mockup.html` gravado e conferido contra o mapa de construção; `docs/mockups/mockup.md` com paleta e páginas. `figma-url.md` só quando o usuário pediu Figma.
-- Screenshots por página em `docs/mockups/screenshots/`.
-- `docs/mockups/mapa-construcao.md` presente (no caminho Figma) e coerente com a matriz de viabilidade: cada linha referencia medida 🟢/🟡 e cada elemento do mockup tem linha correspondente.
+- Mockup em HTML/SVG autocontido (D-24, skill `html-mockup`): páginas no tamanho exato da resolução, visuais nativos do catálogo, todo gráfico em SVG inline, tema do cliente, ajuste à janela, abre offline.
+- `docs/mockups/index.html` gravado (e `pagina-NN-*.html`, se um arquivo por página) e conferido contra o mapa: mesmo `data-id` e mesmo x/y/w/h, sem divergências; `docs/mockups/mockup.md` com paleta e páginas.
+- `docs/mockups/mapa-construcao.md` presente, com tema e resolução no cabeçalho, e coerente com a matriz de viabilidade: cada linha referencia medida 🟢/🟡 e cada visual do HTML tem linha correspondente.
+- Evidência no resumo do gate: caminho do `index.html` e, se houver navegador headless, screenshots por página em `docs/mockups/screenshots/` (opcionais — a falta não bloqueia). `figma-url.md` só quando o usuário pediu Figma.
 - Páginas do mockup cobrem os KPIs 🟢/🟡 da matriz de viabilidade.
 
 ### Gate 6 — Relatório PBIR implementado

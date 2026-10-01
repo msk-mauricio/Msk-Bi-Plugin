@@ -125,7 +125,7 @@ Cerimônia de gate é do pipeline; **qualidade técnica não é cerimônia**:
 - D-19: `dCalendario` marcada como tabela de datas (Fase 3).
 - D-06: `pbip:pbip-validator` limpo **antes da aprovação final** da Fase 6 (nunca abrir a
   aprovação com PBIR não validado), com o resultado anexado ao resumo apresentado ao usuário.
-- D-07: pré-check do Figma MCP antes da Fase 5 (fallback: `client-presentation`).
+- D-24 (substitui D-07): Fase 5 sempre em HTML/SVG autocontido, sem pré-check de Figma MCP nem fallback; `mapa-construcao.md` montado antes do desenho (D-16). Figma só sob pedido explícito.
 - D-15: escrita no modelo exclusivamente via arquivos TMDL versionados (MCP só leitura/runtime).
 - Nomenclatura Dashmaker (D-18) em tudo que for criado.
 

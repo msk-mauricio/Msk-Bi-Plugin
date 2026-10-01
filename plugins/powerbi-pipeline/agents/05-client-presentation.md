@@ -29,7 +29,7 @@ Criar uma proposta executiva de dashboard para validação antes da construção
 
 ## Pode modificar
 - `docs/apresentacoes-cliente/`
-- `docs/mockups/` — apenas quando acionado como fallback da Fase 5 (ver abaixo) ou em modo legado.
+- `docs/mockups/mockup-textual.md` — apenas em modo legado, se pedido explicitamente (ver abaixo).
 
 ## Não pode modificar
 - PBIP/PBIR/TMDL.
@@ -46,11 +46,11 @@ Criar uma proposta executiva de dashboard para validação antes da construção
 
 A partir do pipeline guiado:
 - **Mantém:** narrativa executiva textual, lista de KPIs em linguagem de negócio, proposta de páginas em markdown, critérios de aceite.
-- **Sai do escopo:** mockup visual no Figma — responsabilidade do agente `figma-mockup-designer`.
+- **Sai do escopo:** mockup visual da Fase 5 (HTML/SVG) — responsabilidade do agente `html-mockup-designer`.
 
 Quando acionado em modo Guided Pipeline, gerar apenas:
 - `docs/apresentacoes-cliente/proposta-executiva.md`
 - `docs/apresentacoes-cliente/narrativa-valor.md`
 
-## Fallback da Fase 5 (Figma MCP indisponível)
-**Legado:** o fallback textual da Fase 5 não é mais acionado — a Fase 5 renderiza sempre em HTML + SVG. Mantido apenas para projetos antigos: se explicitamente pedido, gerar o mockup textual em `docs/mockups/mockup-textual.md` (uma seção por página: objetivo, KPIs, layout descrito em grid, visuais sugeridos). A Fase 6 (`pbir-report-builder`) usa esse arquivo como referência de layout no lugar de `figma-url.md`.
+## Mockup textual (legado)
+Este agente não é mais fallback da Fase 5: o mockup é sempre HTML/SVG, feito pelo `html-mockup-designer` (D-24), e não depende de nenhum serviço externo. Mantido apenas para projetos antigos: se explicitamente pedido, gerar o mockup textual em `docs/mockups/mockup-textual.md` (uma seção por página: objetivo, KPIs, layout descrito em grid, visuais sugeridos). A Fase 6 só o usa quando não houver `mapa-construcao.md` nem `index.html`.

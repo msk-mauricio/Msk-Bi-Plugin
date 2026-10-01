@@ -58,7 +58,7 @@ Criar e revisar páginas, visuais e experiência de navegação do relatório Po
 2. Ler medidas disponíveis (TMDL — leitura sistemática, ver skill `pbir`).
 3. Mapear página → pergunta → visual → medida.
 4. Propor layout.
-5. Implementar o PBIR conforme o mockup aprovado.
+5. Implementar o PBIR conforme o `docs/mockups/mapa-construcao.md` e o mockup HTML/SVG aprovados no Gate 5.
 6. Validar JSON e dependências.
 7. Verificação ao vivo, se disponível (ver abaixo).
 
@@ -69,7 +69,7 @@ Se o Power BI Desktop estiver aberto com o PBIP do projeto e os CLIs instalados,
 2. `powerbi-desktop status` — escolher o PID; se `hasUnsavedChanges: true`, pedir ao usuário salvar/descartar antes.
 3. `powerbi-desktop reload --pid <pid>` — recarrega o relatório aberto sem fechar o Desktop.
 4. `powerbi-desktop screenshot-all --pid <pid> --output-dir docs/qa/screenshots-gate6` — sempre em série com o reload (mesmo PID).
-5. Revisar os PNGs contra `docs/mockups/screenshots/*.png` (Fase 5): erros, visuais em branco, labels truncados, slicers vazios, tema/cores.
+5. Revisar os PNGs contra o mockup da Fase 5 (`docs/mockups/screenshots/*.png`, se houver; senão, a página correspondente de `docs/mockups/index.html`): erros, visuais em branco, labels truncados, slicers vazios, tema/cores.
 6. Problema? Corrigir PBIR e voltar ao passo 1. Limpo? Incluir os screenshots na lista de artefatos do handoff.
 
 Se o bridge não estiver disponível, seguir o fluxo normal sem travar (a indisponibilidade não bloqueia o gate — D-14).
@@ -84,8 +84,8 @@ Se o bridge não estiver disponível, seguir o fluxo normal sem travar (a indisp
 
 Antes de criar o relatório PBIR:
 0. **Tema e resolução da página chegam no handoff de despacho** — as duas perguntas do §0 da skill `pbir` (tema? 1280×720 ou 1920×1080?) são respondidas pelo orquestrador na coleta de insumos, **nunca por você** (subagentes não abrem `AskUserQuestion`). Se o handoff não trouxer essas respostas nem o cabeçalho do `mapa-construcao.md` as declarar, devolver o handoff imediatamente pedindo a coleta — não chutar.
-1. Ler `docs/mockups/mapa-construcao.md` — **fonte primária de construção**: cada linha define visual PBI, medida, campos e posição (x,y,w,h); construir o PBIR a partir dele, sem interpretar imagem.
-2. Ler `docs/mockups/figma-url.md` e `docs/mockups/screenshots/*.png` — referência visual de conferência (paleta, hierarquia, títulos narrativos), quando existirem.
-3. Fallbacks, em ordem, quando `mapa-construcao.md` não existir: `docs/mockups/mockup.html` (render HTML+SVG da Fase 5 — ler o HTML e extrair posições/medidas, que estão em coordenadas absolutas); depois `figma-url.md` + screenshots (projetos anteriores a este formato); depois `docs/mockups/mockup-textual.md`; em último caso `docs/apresentacoes-cliente/proposta-executiva.md`.
+1. Ler `docs/mockups/mapa-construcao.md` — **fonte primária de construção** (D-16): o cabeçalho traz tema e resolução; cada linha define ID, tipo nativo (visualType), medidas, campos e posição (x, y, w, h). Construir o PBIR a partir dele, sem interpretar imagem.
+2. Ler `docs/mockups/index.html` (mockup HTML/SVG aprovado no Gate 5) — referência visual de conferência: paleta (variáveis CSS do tema), hierarquia, títulos narrativos. Os visuais trazem `data-id` e `data-x/y/w/h` iguais aos do mapa; em divergência, prevalece o mapa e a divergência vai para o handoff.
+3. Fallbacks, em ordem, quando `mapa-construcao.md` não existir: `docs/mockups/index.html` (ou `mockup.html`, de projetos anteriores) — extrair posições de `data-x/y/w/h` ou do `left/top/width/height` absoluto; depois `docs/mockups/figma-url.md` + `screenshots/` (projetos antigos em Figma); depois `docs/mockups/mockup-textual.md`; em último caso `docs/apresentacoes-cliente/proposta-executiva.md`.
 4. Mapear cada página do mapa em uma página PBIR com os visuais nas posições declaradas.
 5. Ao concluir, devolver o handoff ao orquestrador. **Quem roda a validação do Gate 6 é o orquestrador (sessão principal): ele despacha o agente `pbip:pbip-validator` sobre `powerbi/` e só abre o gate se a validação passar (D-06).** Antes do handoff, faça a auto-checagem: JSON válido, `$schema` presente em todos os arquivos, estrutura `definition.pbir`/`definition/` preservada.
