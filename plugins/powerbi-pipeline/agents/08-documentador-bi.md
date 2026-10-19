@@ -39,7 +39,7 @@ Gerar documentação clara para cliente, usuários e manutenção futura.
 - Consolidar pendências conhecidas.
 
 ## Pode modificar
-- `docs/documentacao/` (saída principal da Fase 8)
+- `docs/documentacao/` (saída principal da Fase 8, incluindo `html/` e `pdf/` gerados pelo script de exportação)
 - `docs/dicionario-dados/` (atualização do dicionário)
 - `README.md`
 - Demais subpastas de `docs/` somente leitura, salvo autorização em `TODO.md`. (`CHANGELOG.md` é gravado pelo orquestrador no encerramento do gate.)
@@ -55,3 +55,9 @@ Gerar documentação clara para cliente, usuários e manutenção futura.
 - Documentação técnica.
 - Guia de uso.
 - Release notes.
+
+## Formatos (D-25)
+Somente pasta local, em **.md + .html + .pdf**: os `.md` são a fonte; ao terminar de escrevê-los, rodar
+`python "${CLAUDE_PLUGIN_ROOT}/skills/bi-documentation/scripts/exportar_docs.py" docs/documentacao --titulo "<Cliente> · <Projeto>"`,
+que gera `docs/documentacao/html/` (página autocontida por documento + `index.html`) e `docs/documentacao/pdf/` (Edge headless).
+Conferir no relatório do script que HTML e PDF batem com a quantidade de `.md`; se faltar PDF, registrar no handoff. Nunca editar HTML/PDF à mão. Não publicar no Notion (nem outro destino externo) sem pedido explícito.

@@ -10,13 +10,16 @@ This skill generates a professional .docx document that fully documents a Power 
 
 > **Branding ativa neste projeto: MSK Code.** O template foi reconfigurado para usar a marca MSK Code — logo `assets/msk-code-logo.png`, paleta azul `#367DD9` (primária) / `#3299D9` (secundária), com acentos em laranja `#F2A516`/`#D97A07` (fonte: `assets/paleta_cores Fonte League Spartan.jpg`). Ver `references/template-spec.md` seção 2 e 12 para os tokens completos. Se outro cliente pedir sua própria marca no lugar da MSK Code, substitua o logo e os tokens de cor mantendo a estrutura do template. O `.docx` é entregável **complementar** à documentação markdown de `docs/documentacao/` da Fase 8 — gere-o quando o cliente pedir documento formal.
 
+> **Padrão da Fase 8 (D-25): somente local, em .md + .html + .pdf.** Os `.md` de `docs/documentacao/` são a fonte; `scripts/exportar_docs.py <pasta> --titulo "<Cliente> · <Projeto>"` gera `html/` (páginas autocontidas com a paleta MSK Code + `index.html`) e `pdf/` (Microsoft Edge headless). Publicar no Notion **não** faz parte do padrão — só quando o usuário pedir explicitamente (`references/notion-publishing.md`). O `.docx` continua opcional.
+
 ## When to Use
 
 - User wants to document a Power BI semantic model
 - User provides PBIR/TMDL/PBIP project files and wants a Word doc
 - User asks to generate documentation from Power BI metadata
 - User mentions "documentação", "documentar", "doc do modelo" in a Power BI context
-- User asks to publish, sync, or "levar para o Notion" the documentation (see `references/notion-publishing.md`)
+- User asks to export the Markdown documentation to HTML/PDF (run `scripts/exportar_docs.py`)
+- User explicitly asks to publish, sync, or "levar para o Notion" the documentation (see `references/notion-publishing.md`) — never by default
 
 ## Quick Start
 
